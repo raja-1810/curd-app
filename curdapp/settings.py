@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 from pathlib import Path
-import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,7 +76,14 @@ WSGI_APPLICATION = 'curdapp.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
- 'default': dj_database_url.config(default='postgres://curdapp_db_user:pnLBZ0gtFWrEhfafAuZVgjuoA0MtMHuG@dpg-d4s7gm3e5dus73avqkog-a:port/curdapp_db')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'curdapp_db',
+        'USER': 'curdapp_user',
+        'PASSWORD': 'postgres', 
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
 
 
